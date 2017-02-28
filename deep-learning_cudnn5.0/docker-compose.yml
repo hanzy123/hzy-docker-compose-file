@@ -1,0 +1,15 @@
+version: '2'
+services:
+  hzy:
+    container_name: hzy_caffe_cudnn5.0
+    image: zl/caffe-torch:1.3.b
+    restart: always
+    tty: true
+    ports:
+      - "8007:8888"
+      - "8008:6008"
+    devices:
+      - /dev/nvidia0
+    volumes:
+      - ~/hzy/dl-data:/root/dl-data
+      - ~/sxwl-dataset:/root/sxwl-dataset
