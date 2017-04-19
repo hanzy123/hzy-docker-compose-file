@@ -1,5 +1,4 @@
 Dockerfile
-.gitignore
 .DS*
 *.swp
 nvidia-docker-compose.yml

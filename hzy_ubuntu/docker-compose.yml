@@ -1,15 +1,13 @@
 version: '2'
 services:
-  hzy-gnome:
-    image: zl/dl-gnome-supervisord:3.13.a
-    container_name: hzy_dl_gnome
+  sx-ubuntu:
+    image: sx/ubuntu14.04:3.7.b
+    container_name: hzy_ubuntu
     restart: always
     tty: true
     ports:
-      - "38022:22"
-      - "38002:8888"
-      - "36002:6006"
-      - "38902:5901"
+      - "8110:8888"
+      - "8111:8889"
     devices:
       - /dev/nvidia0
     volumes:
