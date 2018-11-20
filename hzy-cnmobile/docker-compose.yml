@@ -1,0 +1,21 @@
+version: '2'
+services:
+  sx-fastai:
+    image: SXKJ:32775/cnmobile-docker:7.27
+    container_name: sx_dev_fastai
+    restart: always
+    privileged: true
+    tty: true
+    ports:
+      - "38222:22"
+      - "38081:8888"
+      - "38086:6006"
+      - "38981:5901"
+      - "38989:8889"
+      - "38881:8881"
+    devices:
+      - /dev/nvidia0
+    #runtime: nvidia
+    volumes:
+      - /sxkj/nas:/data/nas
+      #- ./supervisord.conf:/etc/supervisord.conf

@@ -1,18 +1,27 @@
 version: '2'
 services:
-  hzy-dl-tightvnc:
-    image: hzy/tightvnc:4.19.a
-    container_name: hzy_dl_tightvnc
+  hzy-ml-exp:
+  #hzy-dl-tightvnc
+    image: hzy/hzy-ml-exp:6.8.a
+    #image: SXKJ:32775/ubuntu14.04-t99a-deploy:0.94
+    #container_name: hzy_dl_tightvnc
+    container_name: hzy-ml-exp
     privileged: true
     restart: always
     tty: true
+    environment:
+      - HOME=/root
     ports:
       - "38082:8888"
       - "36082:6006"
-      - "38982:5901"
-    devices:
-      - /dev/nvidia0    
+      - "38982:5900"
+      - "38985:22"
+      - "37985:6379"
+      - "38080:8080"
     volumes:
+      - ./supervisord.conf:/etc/supervisord.conf
       - ~/hzy/dl-data:/root/dl-data
-      - ~/sxwl-dataset:/root/sxwl-dataset
-      - /home/raychar/Repos/deepar/DeepAR_Backend/frontend/web/res/upload/ballreco:/root/BallReco
+      - /home/sxwl-dataset:/root/sxwl-dataset
+      - /etc/localtime:/etc/localtime:ro
+
+

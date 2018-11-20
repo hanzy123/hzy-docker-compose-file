@@ -1,0 +1,17 @@
+hzy-mysql:
+  image: SXKJ:32775/t99_mysql:1.0
+  container_name: hzy-mysql
+  privileged: true
+  restart: always
+  tty: true
+  ports:
+    - "38983:3306"
+  environment:
+   MYSQL_ROOT_PASSWORD: sxwldba
+   MYSQL_DATABASE: sx_dataset
+   MYSQL_USER: dba
+   MYSQL_PASSWORD: sxwldba
+  volumes:
+    - /home/sxwl/hzy/dl-data/SXDL_database/sx_dataset_db:/var/lib/mysql 
+    #- /home/sxwl-dataset/nas/sx_db/sx_dataset_db:/root/sx_dataset_db
+    #- /home/sxwl-dataset/nas/sx_db/sx_dataset_db:/var/lib/mysql/sx_dataset

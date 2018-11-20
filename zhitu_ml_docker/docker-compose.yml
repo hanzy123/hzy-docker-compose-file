@@ -1,0 +1,16 @@
+version: '2'
+services:
+  zhitu-ml:
+    container_name: zhitu-ml
+    restart: always
+    build:
+      dockerfile: DockerFile
+      context: .
+    tty: true
+    environment:
+      - HOME=/root
+    ports:
+      - "41082:8888"
+      - "41080:8080"
+    volumes:
+      - ./supervisord.conf:/etc/supervisord.conf
